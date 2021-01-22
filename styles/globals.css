@@ -1,10 +1,10 @@
 * {
-  --slider-height-percentage: 82vh;
+  --slider-height-percentage: 90vh;
   --slider-transition-duration: 700ms;
   --organic-arrow-thickness: 4px;
   --organic-arrow-border-radius: 0px;
   --organic-arrow-height: 40px;
-  --organic-arrow-color: #26456f;
+  --organic-arrow-color: #4caab1;
   --control-button-width: 10%;
   --control-button-height: 25%;
   --control-button-background: transparent;
@@ -12,4 +12,27 @@
   --control-bullet-active-color: #bfe3ed;
   --loader-bar-color: #36787d;
   --loader-bar-height: 6px;
+  --caption-background-color: transparent;
+}
+
+body {
+  background: #4caab1;
+}
+
+@media (max-width: 500px) {
+  * {
+    --slider-height-percentage: 35vh;
+    --slider-transition-duration: 700ms;
+    --organic-arrow-thickness: 4px;
+    --organic-arrow-border-radius: 0px;
+    --organic-arrow-height: 40px;
+    --organic-arrow-color: #26456f;
+    --control-button-width: 10%;
+    --control-button-height: 25%;
+    --control-button-background: transparent;
+    --control-bullet-color: #4caab1;
+    --control-bullet-active-color: #bfe3ed;
+    --loader-bar-color: #36787d;
+    --loader-bar-height: 6px;
+  }
 }

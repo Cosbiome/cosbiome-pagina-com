@@ -1,0 +1,64 @@
+import Aos from "aos";
+import { useEffect } from "react";
+
+interface ICardsInfoIMGProps {
+  nbpr: number;
+  urlImage: string;
+}
+
+// 2000
+
+const CardsInfoIMG = ({ nbpr, urlImage }: ICardsInfoIMGProps) => {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  });
+
+  return (
+    <div
+      data-aos={nbpr === 0 ? "fade-up-right" : "fade-up-left"}
+      className="row mt-5"
+    >
+      <div className={`col-md-6 ${nbpr === 0 ? "" : "offset-md-6"}`}>
+        <div style={{ maxWidth: "740px" }} className="card mb-3">
+          <div className="row g-0">
+            {nbpr === 0 && (
+              <div className="col-md-4">
+                <img
+                  src={urlImage}
+                  style={{ height: "200px" }}
+                  alt="..."
+                  className="img-fluid"
+                />
+              </div>
+            )}
+            <div className="col-md-8">
+              <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <p className="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <p className="card-text">
+                  <small className="text-muted">Last updated 3 mins ago</small>
+                </p>
+              </div>
+            </div>
+            {nbpr === 1 && (
+              <div className="col-md-4">
+                <img
+                  src={urlImage}
+                  alt="..."
+                  style={{ height: "200px" }}
+                  className="img-fluid"
+                />
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CardsInfoIMG;
