@@ -3,7 +3,7 @@ import { SocialIcon } from "react-social-icons";
 
 const ButtonsSocial = () => {
   return (
-    <div style={{ position: "fixed" }}>
+    <div style={{ position: "fixed", zIndex: 101 }}>
       <SocialIcon
         style={{ display: "block", marginTop: "5px", marginLeft: "5px" }}
         url="https://facebook.com/cosbiome"
