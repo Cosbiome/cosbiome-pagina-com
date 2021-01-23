@@ -1,5 +1,7 @@
 import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "react-multi-carousel/lib/styles.css";
+import "semantic-ui-css/semantic.min.css";
 import "../styles/globals.css";
 import "../utils/rws/captioned.css";
 import Layout from "../components/Layout";

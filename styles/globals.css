@@ -15,8 +15,20 @@
   --caption-background-color: transparent;
 }
 
-body {
-  background: #4caab1;
+.react-multi-carousel-list {
+  top: 20%;
+}
+
+.social-icon {
+  display: block;
+}
+
+.final-index {
+  background-color: #4caab1;
+}
+
+.react-multi-carousel-item--active {
+  left: 3.8%;
 }
 
 @media (max-width: 500px) {

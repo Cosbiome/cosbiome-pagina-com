@@ -6,8 +6,6 @@ interface ICardsInfoIMGProps {
   urlImage: string;
 }
 
-// 2000
-
 const CardsInfoIMG = ({ nbpr, urlImage }: ICardsInfoIMGProps) => {
   useEffect(() => {
     Aos.init({ duration: 2000 });
@@ -16,7 +14,7 @@ const CardsInfoIMG = ({ nbpr, urlImage }: ICardsInfoIMGProps) => {
   return (
     <div
       data-aos={nbpr === 0 ? "fade-up-right" : "fade-up-left"}
-      className="row mt-5"
+      className="row mt-5 mb-5"
     >
       <div className={`col-md-6 ${nbpr === 0 ? "" : "offset-md-6"}`}>
         <div style={{ maxWidth: "740px" }} className="card mb-3">

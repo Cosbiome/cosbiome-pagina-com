@@ -1,0 +1,27 @@
+import React from "react";
+import Carousel from "react-multi-carousel";
+
+import Video from "./Video";
+
+const responsive = {
+  doesntmatter: {
+    breakpoint: { max: 3000, min: 0 },
+    items: 1,
+  },
+};
+// i search on youtube "scene" and these are what showed up.
+const videos = ["X66DeKkTs94", "BTkOAOziCAk", "Kc7Oe7e08pU", "idvqLiOeLgc"];
+
+class WhitVideoSlider extends React.Component {
+  render() {
+    return (
+      <Carousel responsive={responsive}>
+        {videos.map((id) => {
+          return <Video id={id} key={id} />;
+        })}
+      </Carousel>
+    );
+  }
+}
+
+export default WhitVideoSlider;
