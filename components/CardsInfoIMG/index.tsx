@@ -8,25 +8,23 @@ interface ICardsInfoIMGProps {
 
 const CardsInfoIMG = ({ nbpr, urlImage }: ICardsInfoIMGProps) => {
   useEffect(() => {
-    Aos.init({ duration: 2000 });
+    Aos.init({ duration: 500 });
   });
+
+  // ${nbpr === 0 ? "" : "offset-md-6"}
+  //
 
   return (
     <div
-      data-aos={nbpr === 0 ? "fade-up-right" : "fade-up-left"}
+      // data-aos={nbpr === 0 ? "fade-up-right" : "fade-up-left"}
       className="row mt-5 mb-5"
     >
       <div className={`col-md-6 ${nbpr === 0 ? "" : "offset-md-6"}`}>
         <div style={{ maxWidth: "740px" }} className="card mb-3">
           <div className="row g-0">
             {nbpr === 0 && (
-              <div className="col-md-4">
-                <img
-                  src={urlImage}
-                  style={{ height: "200px" }}
-                  alt="..."
-                  className="img-fluid"
-                />
+              <div style={{ maxWidth: 500 }} className="col-md-4">
+                <img src={urlImage} alt="..." className="img-fluid" />
               </div>
             )}
             <div className="col-md-8">
@@ -43,13 +41,8 @@ const CardsInfoIMG = ({ nbpr, urlImage }: ICardsInfoIMGProps) => {
               </div>
             </div>
             {nbpr === 1 && (
-              <div className="col-md-4">
-                <img
-                  src={urlImage}
-                  alt="..."
-                  style={{ height: "200px" }}
-                  className="img-fluid"
-                />
+              <div style={{ maxWidth: 500 }} className="col-md-4">
+                <img src={urlImage} alt="..." className="img-fluid" />
               </div>
             )}
           </div>
