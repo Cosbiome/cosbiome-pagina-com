@@ -10,12 +10,12 @@ const responsive = {
   },
 };
 // i search on youtube "scene" and these are what showed up.
-const videos = ["X66DeKkTs94", "BTkOAOziCAk", "Kc7Oe7e08pU", "idvqLiOeLgc"];
+const videos = ["X66DeKkTs94", "BTkOAOziCAk", "Kc7Oe7e08pU", "dpw9EHDh2bM"];
 
 class WhitVideoSlider extends React.Component {
   render() {
     return (
-      <Carousel responsive={responsive}>
+      <Carousel infinite={true} responsive={responsive}>
         {videos.map((id) => {
           return <Video id={id} key={id} />;
         })}

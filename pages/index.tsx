@@ -1,49 +1,39 @@
-import AwesomeSlider from "react-awesome-slider";
-import "react-awesome-slider/dist/styles.css";
-import whitAutoPlay from "react-awesome-slider/dist/autoplay";
-import CardsInfoIMG from "../components/CardsInfoIMG";
-import { useEffect, useState } from "react";
-import ReactHover, { Trigger, Hover } from "react-hover";
-import CardInfoHover from "../components/CardInfoHover";
-import Carousel from "react-multi-carousel";
-import ButtonsSocial from "../components/ButtonsSocial";
-import FormContacto from "../components/FormContacto";
+import AwesomeSlider from "react-awesome-slider"
+import "react-awesome-slider/dist/styles.css"
+import whitAutoPlay from "react-awesome-slider/dist/autoplay"
+import CardsInfoIMG from "../components/CardsInfoIMG"
+import { useEffect, useState } from "react"
+import ReactHover, { Trigger, Hover } from "react-hover"
+import CardInfoHover from "../components/CardInfoHover"
+import ButtonsSocial from "../components/ButtonsSocial"
+import FormContacto from "../components/FormContacto"
+import Fade from "react-reveal/Fade"
+import Head from "next/head"
+import WhitVideoSlider from "../components/WhitVideoSlider"
+import Aos from "aos"
 
-const AutoplaySlider = whitAutoPlay(AwesomeSlider);
-const responsive = {
-  superLargeDesktop: {
-    // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
-    items: 1,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 1,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 1,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  },
-};
+const AutoplaySlider = whitAutoPlay(AwesomeSlider)
 
 const Home = () => {
-  const [timeSlider, setTimeSlider] = useState<number>(5250);
+  const [timeSlider, setTimeSlider] = useState<number>(3000)
   const [imagesCards, setImagesCards] = useState<Array<string>>([
     "https://firebasestorage.googleapis.com/v0/b/cosbiome-bcdf4.appspot.com/o/cosbiome-tarjetas%2Fimagenes%20200x200-1.jpg?alt=media&token=70a97838-82ab-4f3e-b22f-2ae93adf82cb",
     "https://firebasestorage.googleapis.com/v0/b/cosbiome-bcdf4.appspot.com/o/cosbiome-tarjetas%2Fimagenes%20200x200-2.jpg?alt=media&token=ab1332c3-51ee-445b-8d36-7b3772c0e974",
-    "https://firebasestorage.googleapis.com/v0/b/cosbiome-bcdf4.appspot.com/o/cosbiome-tarjetas%2Fimagenes%20200x200-3.jpg?alt=media&token=81116e1a-ddbb-45aa-87d3-f8a71900f687",
+    "https://firebasestorage.googleapis.com/v0/b/cosbiome-bcdf4.appspot.com/o/cosbiome-tarjetas%2Fimagenes%20200x200-3.jpg?alt=media&token=70384305-4863-4e14-8b45-1fb44926550c",
     "https://firebasestorage.googleapis.com/v0/b/cosbiome-bcdf4.appspot.com/o/cosbiome-tarjetas%2Fimagenes%20200x200-4.jpg?alt=media&token=515eaee4-392a-4aeb-9cf4-a1cb06a9e80b",
-  ]);
+  ])
 
-  useEffect(() => {}, [timeSlider]);
+  useEffect(() => {}, [timeSlider])
+  useEffect(() => {
+    Aos.init(3000)
+  })
 
   return (
     <>
-      <ButtonsSocial />
+      <Head>
+        <title> COSBIOME </title>
+      </Head>
+      <ButtonsSocial className="home--buttons--social mt-5" displayButton="block" />
       <div className="container">
         <div style={{ padding: 0 }} className="container aws-index-con mb-5">
           <AutoplaySlider
@@ -52,7 +42,7 @@ const Home = () => {
             className="aws-btn"
             play={true}
             interval={timeSlider}
-            onFirstMount={() => setTimeSlider(3500)}
+            onFirstMount={() => setTimeSlider(1500)}
           >
             <div
               className="img-fluid"
@@ -68,21 +58,23 @@ const Home = () => {
         <div className="container mt-5">
           {imagesCards.map((a, i) => {
             return (
-              <ReactHover
-                options={{
-                  followCursor: true,
-                  shiftX: 20,
-                  shiftY: 0,
-                }}
-              >
-                <Trigger type="trigger">
-                  <CardsInfoIMG nbpr={i % 2} urlImage={a} />;
-                </Trigger>
-                <Hover type="hover">
-                  <CardInfoHover />
-                </Hover>
-              </ReactHover>
-            );
+              <Fade left={i % 2 === 0 ? true : false} right={i % 2 === 1 ? true : false}>
+                <ReactHover
+                  options={{
+                    followCursor: true,
+                    shiftX: 20,
+                    shiftY: 0,
+                  }}
+                >
+                  <Trigger type="trigger">
+                    <CardsInfoIMG nbpr={i % 2} urlImage={a} />
+                  </Trigger>
+                  <Hover type="hover">
+                    <CardInfoHover />
+                  </Hover>
+                </ReactHover>
+              </Fade>
+            )
           })}
         </div>
         <div
@@ -90,24 +82,7 @@ const Home = () => {
           style={{ backgroundColor: "#4caab1" }}
           className="container-fluid  container-videos"
         >
-          <Carousel infinite={true} centerMode={false} responsive={responsive}>
-            <iframe
-              className="item-video-slider-2"
-              src="https://www.youtube.com/embed/BTkOAOziCAk"
-            ></iframe>
-            <iframe
-              className="item-video-slider-2"
-              src="https://www.youtube.com/embed/BTkOAOziCAk"
-            ></iframe>
-            <iframe
-              className="item-video-slider-2"
-              src="https://www.youtube.com/embed/BTkOAOziCAk"
-            ></iframe>
-            <iframe
-              className="item-video-slider-2"
-              src="https://www.youtube.com/embed/BTkOAOziCAk"
-            ></iframe>
-          </Carousel>
+          <WhitVideoSlider />
         </div>
         <div style={{ height: "50vh" }} className="container-fluid mt-2 mb-2 ">
           <div className="row mt-5">
@@ -126,7 +101,7 @@ const Home = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

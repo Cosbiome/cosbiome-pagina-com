@@ -1,24 +1,24 @@
-import React, { useState } from "react";
-import VisibilitySensor from "react-visibility-sensor";
-import { Embed } from "semantic-ui-react";
+import React, { useState } from "react"
+import VisibilitySensor from "react-visibility-sensor"
+import { Embed } from "semantic-ui-react"
 
 const Video = ({ id }) => {
-  const [visible, setVisibile] = useState(true);
+  const [visible, setVisibile] = useState(false)
   return (
     <VisibilitySensor
       onChange={(isVisible) => {
         if (isVisible && !visible) {
-          setVisibile(true);
+          setVisibile(true)
         }
         if (!isVisible && visible) {
-          setVisibile(false);
+          setVisibile(false)
         }
       }}
       partialVisibility
     >
-      <Embed hd={true} id={id} active={visible} source="youtube" />
+      <Embed hd={true} autoplay={false} id={id} active={visible} source="youtube" />
     </VisibilitySensor>
-  );
-};
+  )
+}
 
-export default Video;
+export default Video

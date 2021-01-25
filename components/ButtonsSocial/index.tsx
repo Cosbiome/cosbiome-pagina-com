@@ -1,23 +1,28 @@
-import React from "react";
-import { SocialIcon } from "react-social-icons";
+import React from "react"
+import { SocialIcon } from "react-social-icons"
 
-const ButtonsSocial = () => {
+interface IButtonsSocialProps {
+  className: string
+  displayButton: string
+}
+
+const ButtonsSocial = ({ className, displayButton }: IButtonsSocialProps) => {
   return (
-    <div style={{ position: "fixed", zIndex: 101 }}>
+    <div className={className} style={{ zIndex: 101 }}>
       <SocialIcon
-        style={{ display: "block", marginTop: "5px", marginLeft: "5px" }}
+        style={{ display: displayButton, marginTop: "5px", marginLeft: "5px" }}
         url="https://facebook.com/cosbiome"
       />
       <SocialIcon
-        style={{ display: "block", marginTop: "5px", marginLeft: "5px" }}
+        style={{ display: displayButton, marginTop: "5px", marginLeft: "5px" }}
         url="https://instagram.com/cosbiome"
       />
       <SocialIcon
-        style={{ display: "block", marginTop: "5px", marginLeft: "5px" }}
-        url="https://web.whatsapp.com/cosbiome"
+        style={{ display: displayButton, marginTop: "5px", marginLeft: "5px" }}
+        url="https://api.whatsapp.com/send?phone=5213314297064"
       />
     </div>
-  );
-};
+  )
+}
 
-export default ButtonsSocial;
+export default ButtonsSocial

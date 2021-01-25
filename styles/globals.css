@@ -41,7 +41,24 @@
   padding: 10% 50px 50px;
 }
 
+.navigationbar--social--buttons {
+  display: none;
+}
+
+.home--buttons--social {
+  position: fixed;
+}
+
 @media (max-width: 500px) {
+  .navigationbar--social--buttons {
+    display: block;
+    position: static;
+  }
+
+  .navigationbar--img {
+    width: 40%;
+  }
+
   .aws-index-con {
     height: 30vh;
   }
@@ -51,17 +68,22 @@
     width: 100%;
   }
 
+  .home--buttons--social {
+    visibility: hidden;
+  }
+
   .container-videos {
     height: 50vh;
+    padding: 32% 50px 50px;
   }
 
   .react-multi-carousel-item--active {
     left: 0%;
   }
 
-  .react-multi-carousel-list {
+  /* .react-multi-carousel-list {
     top: 27%;
-  }
+  } */
 
   * {
     --slider-height-percentage: 45%;
